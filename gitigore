@@ -1,0 +1,12 @@
+# Exclude proprietary driver binaries
+/Automation/Drivers_Backup/*
+!/Automation/Drivers_Backup/.gitkeep
+
+# Exclude local logs and temp files
+/Logs/*.txt
+/Temp/
+*.log
+
+# Windows System Files
+Thumbs.db
+desktop.ini
