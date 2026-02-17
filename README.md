@@ -1,7 +1,7 @@
 # 🌌 Nexus Cloud VR (NCVR) 
 ### *The Cloud-Native Virtual Console Ecosystem*
-**Version:** `1.1.0 - Performance Optimization Patch`  
-**Status:** `Stable Release`  
+**Version:** `1.0.0 - Genesis Build.`  
+**Status:** `Stable Release.`  
 **Codename:** `Genesis-System`
 
 ---
@@ -43,7 +43,7 @@ Centralized `phone_profiles.json` provides tailored distortion coefficients for 
 NCVR-Core/
 ├── .github/                # GitHub Actions & Rulesets
 ├── Automation/             # The "Muscle" Tier
-│   ├── NCVR_Switch.bat     # Master Switcher v1.1.0
+│   ├── NCVR_Switch.bat     # Master Switcher v1.0.0
 │   └── curl.exe            # Network Transport Binary (Optional)
 ├── Dashboard/              # The "Frontend" Tier
 │   ├── index.html          # PS4-Style XMB Dashboard
