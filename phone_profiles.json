@@ -29,3 +29,23 @@
     ]
   }
 }
+
+{
+  "device_id": "unique_device_identifier",
+  "device_name": "Your Phone Model",
+  "manufacturer": "Samsung|OnePlus|Google|Xiaomi",
+  "android_version": 12,
+  "display_resolution": "1440x1440",
+  "display_dpi": 556,
+  "refresh_rate": 60,
+  "ram_gb": 8,
+  "storage_gb": 128,
+  "processor": "Snapdragon 8 Gen 1",
+  "vr_driver": "iVRy",
+  "tethering_enabled": true,
+  "usb_debug_enabled": true,
+  "tracking_method": "gyroscope_accelerometer",
+  "audio_output": "headphone_jack",
+  "battery_capacity_mah": 4500,
+  "battery_optimization": "disable_battery_saver"
+}
