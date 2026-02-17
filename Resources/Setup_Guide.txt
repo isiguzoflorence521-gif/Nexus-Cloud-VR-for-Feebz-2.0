@@ -1,0 +1,5 @@
+NCVR COMMAND: [PROTOCOL]
+1. Connect phone via USB 3.1+ Cable.
+2. Enable USB Tethering on Phone.
+3. Enable 'USB Redirection' in Shadow Settings.
+4. Scan QR: [https://www.feebzstore.com/vrappsold#:~:text=Get%20a%202nd%20FEEBZ%20VR,Recommended%20VR%20apps%20and%20games] in Google Cardboard App.
