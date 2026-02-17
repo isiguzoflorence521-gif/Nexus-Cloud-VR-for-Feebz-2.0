@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCVR | Nexus Cloud VR Console</title>
+    <style>
+        :root { --nexus-blue: #00d4ff; --bg-dark: #0a0a0c; --panel: #161b22; }
+        body { background: var(--bg-dark); color: white; font-family: 'Segoe UI', monospace; margin: 0; display: flex; flex-direction: column; align-items: center; }
+        .header { width: 100%; padding: 20px; text-align: center; border-bottom: 2px solid var(--nexus-blue); box-shadow: 0 0 15px var(--nexus-blue); }
+        .console-container { width: 90%; max-width: 600px; margin-top: 30px; background: var(--panel); padding: 20px; border-radius: 8px; border: 1px solid #30363d; }
+        .status-badge { display: inline-block; padding: 5px 10px; border-radius: 4px; background: #238636; font-size: 0.8em; margin-bottom: 20px; }
+        .btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        button { background: transparent; border: 1px solid var(--nexus-blue); color: var(--nexus-blue); padding: 15px; cursor: pointer; transition: 0.3s; font-weight: bold; border-radius: 4px; }
+        button:hover { background: var(--nexus-blue); color: black; box-shadow: 0 0 10px var(--nexus-blue); }
+        #log-window { margin-top: 20px; height: 100px; background: black; color: #00ff00; padding: 10px; font-size: 0.7em; overflow-y: auto; border: 1px solid #333; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>🌌 NEXUS CLOUD VR</h1>
+        <p>Shadow PC Orchestrator v1.0.0</p>
+    </div>
+
+    <div class="console-container">
+        <div class="status-badge" id="sys-status">SYSTEM: READY</div>
+        
+        <div class="btn-grid">
+            <button onclick="sendCommand('iVRy')">HOT-SWAP: IVRY</button>
+            <button onclick="sendCommand('VRidge')">HOT-SWAP: VRIDGE</button>
+            <button onclick="sendCommand('Trinus')">HOT-SWAP: TRINUS</button>
+            <button onclick="sendCommand('Restart')">REBOOT STEAMVR</button>
+        </div>
+
+        <div id="log-window">
+            [SYS] Initialization complete...<br>
+            [SYS] Waiting for command from Dell 3100...
+        </div>
+    </div>
+
+    <script>
+        // Replace with your Google Apps Script Web App URL
+        const GAS_URL = "YOUR_GOOGLE_SCRIPT_EXEC_URL";
+
+        async function sendCommand(driver) {
+            const log = document.getElementById('log-window');
+            const status = document.getElementById('sys-status');
+            
+            log.innerHTML += `<br>[CMD] Swapping to ${driver}...`;
+            status.innerText = "SYSTEM: BUSY";
+            status.style.background = "#d29922";
+
+            try {
+                // Sending command to Google Apps Script Backend
+                const response = await fetch(`${GAS_URL}?protocol=${driver}`, { method: 'POST' });
+                const result = await response.json();
+                
+                log.innerHTML += `<br>[RES] Success: ${result.message}`;
+                status.innerText = "SYSTEM: ONLINE";
+                status.style.background = "#238636";
+            } catch (err) {
+                log.innerHTML += `<br>[ERR] Connection failed. Check GAS URL.`;
+                status.innerText = "SYSTEM: OFFLINE";
+                status.style.background = "#f85149";
+            }
+            log.scrollTop = log.scrollHeight;
+        }
+    </script>
+</body>
+</html>
